@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-    	connectToDB();
+    	//connectToDB();
         Parent root = FXMLLoader.load(getClass().getResource("LogIN.fxml"));
         primaryStage.setTitle("TIDEE");
         primaryStage.setScene(new Scene(root, 600, 400));
@@ -29,7 +29,7 @@ public class Main extends Application {
     }
     
     
-    public void connectToDB() {
+    /*public void connectToDB() {
    
     		try {
     			// Get a connection
@@ -53,6 +53,6 @@ public class Main extends Application {
     		catch (Exception exc) {
     			exc.printStackTrace();
     		}
-    	}
+    	}*/
     
 }

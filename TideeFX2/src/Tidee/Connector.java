@@ -9,14 +9,20 @@ public class Connector {
 	public Connector() {
 		try {
 			connection = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/stocksystem?autoReconnect=true&useSSL=false", "root", "MyNewPass");
+					"jdbc:mysql://localhost:3306/stocksystem?autoReconnect=true&useSSL=false",
+					"root", "MyNewPass");
 		} catch (Exception exc) {
 			exc.printStackTrace();
 		}
 	}
-	/*public ResultSet execStatement(String stmt) {
-		Statement statement = connection.createStatement();
-		
+	public ResultSet execStatement(String stmt) {
+		try {
+			Statement statement = (Statement) connection.createStatement();
+			ResultSet results = statement.executeQuery(stmt);
+			return results;
+		} catch (Exception exc) { 
+			exc.printStackTrace(); 
+		}
+		return null;
 	}
-	*/
 }
