@@ -30,6 +30,8 @@ public class LogInController implements Initializable {
 	private TextField empIDtxt;
 	@FXML
 	private PasswordField passwordTxt;
+	@FXML
+	private Label errorLabel;
 
 	// Operations
 
@@ -62,14 +64,16 @@ public class LogInController implements Initializable {
 			}
 			if (test==false)
 			{
-				System.out.println("Error");
+				errorLabel.setText("Incorrect credentials");
 			}
 		}
 		catch (Exception exc) {
 			exc.printStackTrace();
 	}
 }
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 	}
 }
