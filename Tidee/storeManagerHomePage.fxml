@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.storeManagerController">
+   <children>
+      <Label layoutX="32.0" layoutY="30.0" text="Store Manager Homepage">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Button layoutX="361.0" layoutY="142.0" mnemonicParsing="false" onAction="#changeLayout" prefHeight="58.0" prefWidth="174.0" text="Change Store Layout">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="275.0" mnemonicParsing="false" onAction="#Clearence" prefHeight="58.0" prefWidth="174.0" text="View Clearance History">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="142.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="174.0" text="View Store Inventory">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="361.0" layoutY="275.0" mnemonicParsing="false" onAction="#createPriceEvent" prefHeight="58.0" prefWidth="174.0" text="Create Price Event">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
