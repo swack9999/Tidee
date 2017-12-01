@@ -21,5 +21,6 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.LogInController">
     <TextField fx:id="empIDtxt" layoutX="63.0" layoutY="175.0" promptText="Employee ID" />
     <PasswordField fx:id="passwordTxt" layoutX="63.0" layoutY="244.0" promptText="Password" />
     <Button layoutX="342.0" layoutY="200.0" mnemonicParsing="false" onAction="#logInButton" text="Log In" />
+    <Label fx:id="errorLabel" layoutX="271.0" layoutY="149.0" prefHeight="21.0" prefWidth="217.0" textFill="RED" />
 </children>
 </Pane>
