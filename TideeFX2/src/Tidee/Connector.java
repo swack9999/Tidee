@@ -15,10 +15,14 @@ public class Connector {
 			exc.printStackTrace();
 		}
 	}
-	public ResultSet execStatement(String stmt) {
+	public ResultSet execStatement(boolean updateOrQuery, String stmt) {
 		try {
+			ResultSet results = null;
 			Statement statement = (Statement) connection.createStatement();
-			ResultSet results = statement.executeQuery(stmt);
+			if (!updateOrQuery)
+				results = statement.executeQuery(stmt);
+			else
+				statement.executeUpdate(stmt);
 			return results;
 		} catch (Exception exc) { 
 			exc.printStackTrace(); 

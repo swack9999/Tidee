@@ -9,22 +9,33 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.AddItemController">
    <children>
-      <Label layoutX="25.0" layoutY="30.0" text="Add Item">
+      <Label layoutX="31.0" layoutY="20.0" text="Add Item">
          <font>
-            <Font size="28.0" />
+            <Font size="32.0" />
          </font>
       </Label>
-      <Label layoutX="25.0" layoutY="93.0" text="Department ID:" />
-      <TextField layoutX="140.0" layoutY="89.0" />
-      <Label layoutX="25.0" layoutY="130.0" text="Stockroom quantity:" />
-      <TextField layoutX="140.0" layoutY="126.0" />
-      <Label layoutX="28.0" layoutY="256.0" text="Floor quantity:" />
-      <TextField layoutX="140.0" layoutY="252.0" />
-      <Label layoutX="26.0" layoutY="171.0" text="Stockroom location:" />
-      <TextField layoutX="140.0" layoutY="167.0" />
-      <Label layoutX="25.0" layoutY="293.0" text="Floor location:" />
-      <TextField layoutX="140.0" layoutY="289.0" />
-      <Button layoutX="482.0" layoutY="56.0" mnemonicParsing="false" onAction= "#Return" prefHeight="27.0" prefWidth="52.0" text="Return" />
-      <Button layoutX="401.0" layoutY="337.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="59.0" text="Submit" />
+      <Label layoutX="26.0" layoutY="75.0" text="Item Name:" />
+      <TextField fx:id="itemName" layoutX="116.0" layoutY="71.0" prefHeight="25.0" prefWidth="149.0" promptText="ex. Cellphone" />
+      <Label layoutX="28.0" layoutY="161.0" text="Initial Quantity:" />
+      <TextField fx:id="initQuant" layoutX="116.0" layoutY="157.0" promptText="ex. 5" />
+      <Label layoutX="28.0" layoutY="204.0" text="Price:" />
+      <TextField fx:id="price" layoutX="116.0" layoutY="200.0" promptText="ex. $450" />
+      <Button layoutX="512.0" layoutY="33.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="52.0" text="Return" />
+      <Label layoutX="25.0" layoutY="246.0" text="Item Description:" />
+      <TextArea fx:id="itemDesc" layoutX="27.0" layoutY="276.0" prefHeight="84.0" prefWidth="238.0" />
+      <TextField fx:id="storeLoc" layoutX="415.0" layoutY="279.0" />
+      <Label layoutX="294.0" layoutY="283.0" text="Floor location:" />
+      <TextField fx:id="stockLoc" layoutX="415.0" layoutY="157.0" />
+      <Label layoutX="294.0" layoutY="161.0" text="Stockroom location:" />
+      <TextField fx:id="storeQuant" layoutX="415.0" layoutY="242.0" />
+      <Label layoutX="293.0" layoutY="246.0" text="Floor quantity:" />
+      <TextField fx:id="stockQuant" layoutX="415.0" layoutY="116.0" />
+      <Label layoutX="293.0" layoutY="120.0" text="Stockroom quantity:" />
+      <TextField fx:id="depID" layoutX="415.0" layoutY="71.0" />
+      <Label layoutX="293.0" layoutY="75.0" text="Department ID:" />
+      <Button layoutX="347.0" layoutY="346.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="59.0" onAction="#Submit" text="Submit" />
+      <Label layoutX="28.0" layoutY="120.0" text="Item ID:" />
+      <TextField fx:id="itemID" layoutX="116.0" layoutY="116.0" />
+      <Label fx:id="errorLabel" layoutX="28.0" layoutY="130.0" prefHeight="21" prefWidth="500" textFill="RED" />
    </children>
 </AnchorPane>
