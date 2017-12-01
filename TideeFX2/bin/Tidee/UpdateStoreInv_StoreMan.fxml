@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="405.0" prefWidth="599.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Update Store Inventory">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TableView fx:id="itemView" layoutX="14.0" layoutY="122.0" prefHeight="212.0" prefWidth="400.0">
+         <columns>
+            <TableColumn fx:id="itemIDColumn" prefWidth="75.0" text="ItemID" />
+            <TableColumn fx:id="deptColumn" prefWidth="75.0" text="Dept" />
+            <TableColumn fx:id="itemColumn" prefWidth="138.0" text="Item" />
+            <TableColumn fx:id="inventoryColumn" prefWidth="118.0" text="Inventory" />
+         </columns>
+      </TableView>
+      <Button layoutX="480.0" layoutY="37.0" mnemonicParsing="false" onAction="#ReturnInven" prefHeight="31.0" prefWidth="98.0" text="Return" />
+      <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="34.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo%20for%20search.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="259.0" layoutY="74.0" mnemonicParsing="false" onAction="#Search" prefHeight="31.0" prefWidth="98.0" text="Search" />
+      <TextField fx:id="SearchValue" layoutX="72.0" layoutY="77.0" promptText="Item name" />
+      <Label layoutX="436.0" layoutY="185.0" text="New Quantity:" />
+      <TextField layoutX="436.0" layoutY="209.0" prefHeight="25.0" prefWidth="149.0" />
+      <Button layoutX="436.0" layoutY="353.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="124.0" text="Submit Changes" />
+   </children>
+</AnchorPane>
