@@ -14,27 +14,22 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Button layoutX="32.0" layoutY="95.0" mnemonicParsing="false" onAction="#changeLayout" prefHeight="58.0" prefWidth="174.0" text="Change Store Layout">
+      <Button layoutX="361.0" layoutY="142.0" mnemonicParsing="false" onAction="#changeLayout" prefHeight="58.0" prefWidth="174.0" text="Change Store Layout">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="32.0" layoutY="281.0" mnemonicParsing="false" onAction="#Clearence" prefHeight="58.0" prefWidth="174.0" text="View Clearance History">
+      <Button layoutX="68.0" layoutY="275.0" mnemonicParsing="false" onAction="#Clearence" prefHeight="58.0" prefWidth="174.0" text="View Clearance History">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="32.0" layoutY="180.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="174.0" text="View Store Inventory">
+      <Button layoutX="68.0" layoutY="142.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="174.0" text="View Store Inventory">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="276.0" layoutY="180.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="174.0" text="Edit Store Inventory">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button layoutX="276.0" layoutY="281.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="174.0" text="Create Price Event">
+      <Button layoutX="361.0" layoutY="275.0" mnemonicParsing="false" onAction="#createPriceEvent" prefHeight="58.0" prefWidth="174.0" text="Create Price Event">
          <font>
             <Font size="15.0" />
          </font>

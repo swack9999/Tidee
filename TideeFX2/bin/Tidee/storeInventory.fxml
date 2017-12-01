@@ -41,7 +41,7 @@
             </columns>
         </TableView>
         <Button layoutX="494.0" layoutY="41.0" mnemonicParsing="false" onAction="#Return" prefHeight="27.0" prefWidth="52.0" text="Return" />
-        <Button layoutX="57.0" layoutY="353.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="118.0" text="Search for Item">
+        <Button layoutX="57.0" layoutY="353.0" mnemonicParsing="false" onAction="#Search" prefHeight="39.0" prefWidth="118.0" text="Search for Item">
             <font>
                 <Font size="14.0" />
             </font>

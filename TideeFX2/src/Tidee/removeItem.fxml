@@ -14,15 +14,16 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TableView layoutX="38.0" layoutY="100.0" prefHeight="200.0" prefWidth="238.0">
+      <TableView fx:id="itemview" layoutX="38.0" layoutY="100.0" prefHeight="260.0" prefWidth="382.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Dept" />
-            <TableColumn prefWidth="75.0" text="Item" />
-            <TableColumn prefWidth="75.0" text="Inventory" />
+            <TableColumn fx:id="columnItemID" prefWidth="75.0" text="ItemID" />
+            <TableColumn fx:id="columnDept" prefWidth="75.0" text="Dept" />
+            <TableColumn fx:id="columnItem" prefWidth="146.0" text="Item" />
+            <TableColumn fx:id="columnInventory" prefWidth="85.0" text="Inventory" />
          </columns>
       </TableView>
-      <Button layoutX="495.0" layoutY="46.0" mnemonicParsing="false" onAction="#ReturnInven" prefHeight="27.0" prefWidth="52.0" text="Return" />
-      <Button layoutX="307.0" layoutY="188.0" mnemonicParsing="false" text="Remove Item">
+      <Button fx:id="btnReturn" layoutX="470.0" layoutY="46.0" mnemonicParsing="false" onAction="#ReturnInven" prefHeight="31.0" prefWidth="77.0" text="Return" />
+      <Button layoutX="458.0" layoutY="215.0" mnemonicParsing="false" onAction="#RemoveItem" text="Remove Item">
          <font>
             <Font size="14.0" />
          </font>

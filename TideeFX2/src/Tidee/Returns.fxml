@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="417.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReturnsController">
+   <children>
+      <TableView layoutX="39.0" layoutY="135.0" prefHeight="200.0" prefWidth="312.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Item ID" />
+            <TableColumn prefWidth="75.0" text="Dept" />
+            <TableColumn prefWidth="75.0" text="Item" />
+            <TableColumn prefWidth="75.0" text="Inventory" />
+         </columns>
+      </TableView>
+      <TextField layoutX="445.0" layoutY="209.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="445.0" layoutY="186.0" text="Quantity Returned:" />
+      <Button layoutX="421.0" layoutY="353.0" mnemonicParsing="false" text="Submit Returns" />
+      <TextField layoutX="39.0" layoutY="94.0" promptText="Item name" />
+      <Label layoutX="24.0" layoutY="24.0" text="Process Returns">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
