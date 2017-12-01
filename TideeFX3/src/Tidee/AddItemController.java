@@ -33,6 +33,8 @@ public class AddItemController {
 	@FXML
 	private TextField storeLoc;
 	@FXML
+	private TextField storeLocSub;
+	@FXML
 	private TextField itemName;
 	@FXML
 	private TextField initQuant;
@@ -77,15 +79,17 @@ public class AddItemController {
 		else {
 			// Add the described item to the database
 			errorLabel.setVisible(false);
-			conn.execStatement(true, "insert into `item` "
+			String stmt= "insert into `item` "
 					+ "(`depNum`, `itemID`, `itemName`, `price`, "
 					+ "`productDescription`, `stockInventory`, "
 					+ "`stockSecLocation`, `storeInventory`, "
-					+ "`storeSecLocation`) values ('" + depID.getText() + "', '" 
+					+ "`storeSecLocation`, `storeSubLocation`) values ('" + depID.getText() + "', '" 
 					+ itemID.getText() + "', '" + itemName.getText() + "', "
 					+ price.getText() + ", '" + itemDesc.getText() + "', " 
 					+ stockQuant.getText() + ", " + stockLoc.getText() + ", "
-					+ storeQuant.getText() + ", " + storeLoc.getText() + ");");
+					+ storeQuant.getText() + ", '" + storeLoc.getText() + "', '"
+					+storeLocSub.getText()+"');";
+			conn.execStatement(true, stmt);
 		}
 	}
 }
