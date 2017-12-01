@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.createPriceController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Create Price Change Event">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="435.0" layoutY="350.0" mnemonicParsing="false" text="Create Price Event" />
+      <TableView layoutX="135.0" layoutY="137.0" prefHeight="200.0" prefWidth="311.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Dept" />
+            <TableColumn prefWidth="75.0" text="Item" />
+            <TableColumn prefWidth="75.0" text="Price" />
+            <TableColumn prefWidth="75.0" text="Inventory" />
+         </columns>
+      </TableView>
+      <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="38.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../OneDrive/HOMEWORK/Fall%202017/CIS%20375/Tidee-master/logo%20for%20search.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="76.0" layoutY="95.0" promptText="Item name" />
+      <Button layoutX="454.0" layoutY="71.0" mnemonicParsing="false" onAction="#Return" prefHeight="27.0" prefWidth="95.0" text="Return" />
+   </children>
+</AnchorPane>
