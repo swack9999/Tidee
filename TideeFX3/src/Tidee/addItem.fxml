@@ -31,16 +31,16 @@
       <TextField fx:id="storeQuant" layoutX="452.0" layoutY="200.0" />
       <TextField fx:id="storeLoc" layoutX="452.0" layoutY="241.0" />
       <TextField fx:id="storeLocSub" layoutX="452.0" layoutY="288.0" />
-      <Label layoutX="316.0" layoutY="204.0" text="Floor quantity:" />
       <Label layoutX="309.0" layoutY="121.0" text="Stockroom quantity:" />
       <Label layoutX="310.0" layoutY="76.0" text="Department ID:" />
       <Button layoutX="516.0" layoutY="388.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="89.0" text="Submit" />
       <Label layoutX="27.0" layoutY="121.0" text="Item ID:" />
       <Label fx:id="errorLabel" layoutX="28.0" layoutY="130.0" prefHeight="21" prefWidth="500" textFill="RED" />
       <Label layoutX="317.0" layoutY="334.0" text="Item Picture:" />
-      <ListView fx:id="listView" layoutX="451.0" layoutY="332.0" prefHeight="25.0" prefWidth="149.0" />
       <Button layoutX="512.0" layoutY="33.0" mnemonicParsing="false" onAction="#Return" prefHeight="31.0" prefWidth="83.0" text="Return" />
-      <Button fx:id="browseButton" layoutX="602.0" layoutY="329.0" mnemonicParsing="false" text="Browse" />
+      <Button fx:id="browseButton" layoutX="602.0" layoutY="329.0" mnemonicParsing="false" onAction="#Browse" text="Browse" />
       <Label layoutX="316.0" layoutY="293.0" text="Floor sub location:" />
+      <TextField fx:id="filePath" layoutX="412.0" layoutY="329.0" maxHeight="31.0" maxWidth="187.0" />
+      <Label layoutX="317.0" layoutY="205.0" text="Floor Inventory:" />
    </children>
 </AnchorPane>
