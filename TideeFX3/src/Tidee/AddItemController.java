@@ -4,9 +4,12 @@
 package Tidee;
 
 import javafx.scene.control.TextArea;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +18,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import java.sql.PreparedStatement;
 
 public class AddItemController {
 	// Attributes
@@ -44,6 +49,12 @@ public class AddItemController {
 	private TextArea itemDesc;
 	@FXML
 	private Label errorLabel;
+	@FXML
+	private TextField filePath;
+	private FileChooser filechooser;
+	private File file;
+	private FileInputStream fis;
+	
 	
 	// Operations
 	public void Return(ActionEvent event) throws IOException {
@@ -55,6 +66,17 @@ public class AddItemController {
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(manager_home_scene);
 		app_stage.show();
+	}
+	@FXML
+	public void Browse(ActionEvent event) throws IOException, SQLException {
+		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		filechooser=new FileChooser();
+		filechooser.setTitle("Choose image file");
+		file=filechooser.showOpenDialog(app_stage);
+		if(file!=null)
+		{
+			filePath.setText(file.getAbsolutePath());
+		}
 	}
 	@FXML
 	public void Submit(ActionEvent event) throws IOException, SQLException {
@@ -79,17 +101,34 @@ public class AddItemController {
 		else {
 			// Add the described item to the database
 			errorLabel.setVisible(false);
-			String stmt= "insert into `item` "
-					+ "(`depNum`, `itemID`, `itemName`, `price`, "
-					+ "`productDescription`, `stockInventory`, "
-					+ "`stockSecLocation`, `storeInventory`, "
-					+ "`storeSecLocation`, `storeSubLocation`) values ('" + depID.getText() + "', '" 
-					+ itemID.getText() + "', '" + itemName.getText() + "', "
-					+ price.getText() + ", '" + itemDesc.getText() + "', " 
-					+ stockQuant.getText() + ", " + stockLoc.getText() + ", "
-					+ storeQuant.getText() + ", '" + storeLoc.getText() + "', '"
-					+storeLocSub.getText()+"');";
-			conn.execStatement(true, stmt);
+			if(file!=null)
+			{
+			fis=new FileInputStream(file);
+			try {
+				Connection connection = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/stocksystem?autoReconnect=true&useSSL=false",
+						"root", "hello123");
+				PreparedStatement statement=connection.prepareStatement("insert into `item` "
+						+ "(`depNum`, `itemID`, `itemName`, `price`, "
+						+ "`productDescription`, `stockInventory`, "
+						+ "`stockSecLocation`, `storeInventory`, "
+						+ "`storeSecLocation`, `storeSubLocation`, `itemPic`) values ('" + depID.getText() + "', '" 
+						+ itemID.getText() + "', '" + itemName.getText() + "', "
+						+ price.getText() + ", '" + itemDesc.getText() + "', " 
+						+ stockQuant.getText() + ", " + stockLoc.getText() + ", "
+						+ storeQuant.getText() + ", '" + storeLoc.getText() + "', '"
+						+storeLocSub.getText()+"',?);");
+				statement.setBinaryStream(1, fis);
+				statement.execute();
+			} catch (Exception exc) {
+				exc.printStackTrace();
+			}
+			}
+			else
+			{
+				errorLabel.setText("No file selected, Use browse button");
+				errorLabel.setVisible(true);
+			}
 		}
 	}
 }
