@@ -25,7 +25,22 @@ public class TableItems {
 	private DoubleProperty markdownPrice;
 	/*sale event */
 	private IntegerProperty duration;
-
+	/*layout*/
+	private StringProperty layoutID;
+	private StringProperty secName;
+	private StringProperty subSecName;
+	
+	
+	/*layout constructor*/
+	public TableItems (String layoutID, String secName, String subSecName, String itemName)
+	{
+		this.layoutID = new SimpleStringProperty(layoutID);
+		this.secName = new SimpleStringProperty(secName);
+		this.subSecName = new SimpleStringProperty(subSecName);
+		this.itemName= new SimpleStringProperty(itemName);
+	}
+	
+	/*sale event constructor */
 	public TableItems(String eventID, String eventDate, String itemID, String secLoc, String subLoc, double markdownPrice, int duration,String itemName)
 	{
 		this.eventID = new SimpleStringProperty(eventID);
@@ -38,7 +53,7 @@ public class TableItems {
 		this.itemName= new SimpleStringProperty(itemName);
 	}
 	
-	
+	/*clearance event constructor*/
 	public TableItems(int depNum,String itemID,String itemName,double price, String productDescription,int stockInventory,int stockSecLocation,
 			int storeInventory, String storeSecLocation,String storeSubLocation)
 	{
@@ -178,6 +193,33 @@ public class TableItems {
 		return duration.get();
 	}
 	
+	/*layout*/
+	public void setLayoutID(String layoutID)
+	{
+		this.layoutID.set(layoutID);
+	}
+	public String getLayoutID()
+	{
+		return layoutID.get();
+	}
+	public void setSecName(String secName)
+	{
+		this.secName.set(secName);
+	}
+	public String getSecName()
+	{
+		return secName.get();
+	}
+	public void setSubSecName(String subSecName)
+	{
+		this.subSecName.set(subSecName);
+	}
+	public String getSubSecName()
+	{
+		return subSecName.get();
+	}
+	
+	
 
 	public IntegerProperty depNumProperty() {return this.depNum;}
 	public StringProperty  itemIDProperty() {return this.itemID;}
@@ -196,6 +238,10 @@ public class TableItems {
 	public DoubleProperty markdownPriceProperty() {return this.markdownPrice;}
 	/*sales*/
 	public IntegerProperty durationProperty() {return this.duration;}
+	/*layout*/
+	public StringProperty layoutIDProperty( ) {return this.layoutID;}
+	public StringProperty secNameProperty( ) {return this.secName;}
+	public StringProperty subSecNameProperty( ) {return this.subSecName;}
 	
 }
 
