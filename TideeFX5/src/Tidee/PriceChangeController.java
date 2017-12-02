@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -96,8 +97,10 @@ public class PriceChangeController implements Initializable{
 		storeSubLocColumn.setCellValueFactory(new PropertyValueFactory<>("storeSubLocation"));
 		startDateColumn.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
 		durationColumn.setCellValueFactory(new PropertyValueFactory<>("duration"));
+		itemIDColumn.setSortType(TableColumn.SortType.ASCENDING);
 		itemView.setItems(null);
 		itemView.setItems(data);
+		itemView.getSortOrder().add(itemIDColumn);
 	}
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
