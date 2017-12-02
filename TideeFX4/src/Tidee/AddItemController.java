@@ -105,10 +105,7 @@ public class AddItemController {
 			{
 			fis=new FileInputStream(file);
 			try {
-				Connection connection = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/stocksystem?autoReconnect=true&useSSL=false",
-						"root", "cis375");
-				PreparedStatement statement=connection.prepareStatement("insert into `item` "
+				PreparedStatement statement=conn.getconnection().prepareStatement("insert into `item` "
 						+ "(`depNum`, `itemID`, `itemName`, `price`, "
 						+ "`productDescription`, `stockInventory`, "
 						+ "`stockSecLocation`, `storeInventory`, "
