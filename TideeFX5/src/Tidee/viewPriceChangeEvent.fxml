@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="638.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.PriceChangeController">
+   <children>
+      <Label layoutX="40.0" layoutY="32.0" text="Price Events">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="843.0" layoutY="43.0" mnemonicParsing="false" onAction="#Return" prefHeight="31.0" prefWidth="73.0" text="Return" />
+      <TableView fx:id="itemView" layoutX="34.0" layoutY="123.0" prefHeight="300.0" prefWidth="961.0">
+         <columns>
+            <TableColumn fx:id="itemIDColumn" prefWidth="81.0" text="ItemID" />
+            <TableColumn fx:id="itemColumn" prefWidth="156.0" text="Item" />
+            <TableColumn fx:id="eventIDColumn" prefWidth="98.0" text="EventID" />
+            <TableColumn fx:id="markdownPriceColumn" prefWidth="126.0" text="Markdown Price" />
+            <TableColumn fx:id="storeLocColumn" prefWidth="148.0" text="Store Location" />
+            <TableColumn fx:id="storeSubLocColumn" prefWidth="145.0" text="Store Sub Location" />
+            <TableColumn fx:id="startDateColumn" minWidth="0.0" prefWidth="133.0" text="Start Date" />
+            <TableColumn fx:id="durationColumn" prefWidth="73.0" text="Duration" />
+         </columns>
+      </TableView>
+      <Button layoutX="824.0" layoutY="479.0" mnemonicParsing="false" onAction="#createPriceEvent" text="Create Price Event" />
+   </children>
+</AnchorPane>

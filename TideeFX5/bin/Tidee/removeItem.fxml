@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.removeItemController">
+   <children>
+      <Label layoutX="25.0" layoutY="26.0" text="Remove Item From Store">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TableView fx:id="itemview" layoutX="38.0" layoutY="100.0" prefHeight="260.0" prefWidth="382.0">
+         <columns>
+            <TableColumn fx:id="columnItemID" prefWidth="75.0" text="ItemID" />
+            <TableColumn fx:id="columnDept" prefWidth="75.0" text="Dept" />
+            <TableColumn fx:id="columnItem" prefWidth="146.0" text="Item" />
+            <TableColumn fx:id="columnInventory" prefWidth="85.0" text="Inventory" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnReturn" layoutX="470.0" layoutY="46.0" mnemonicParsing="false" onAction="#ReturnInven" prefHeight="31.0" prefWidth="77.0" text="Return" />
+      <Button layoutX="458.0" layoutY="215.0" mnemonicParsing="false" onAction="#RemoveItem" text="Remove Item">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
