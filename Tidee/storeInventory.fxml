@@ -16,42 +16,18 @@
                 <Font size="36.0" />
             </font>
         </Label>
-        <Label layoutX="29.0" layoutY="90.0" text="Stockroom">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="300.0" layoutY="90.0" text="Store Floor">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <TableView layoutX="29.0" layoutY="126.0" prefHeight="200.0" prefWidth="238.0">
-            <columns>
-                <TableColumn prefWidth="75.0" text="Dept" />
-                <TableColumn prefWidth="75.0" text="Item" />
-                <TableColumn prefWidth="75.0" text="Inventory" />
-            </columns>
-        </TableView>
-        <TableView layoutX="300.0" layoutY="126.0" prefHeight="200.0" prefWidth="238.0">
-            <columns>
-                <TableColumn prefWidth="75.0" text="Dept" />
-                <TableColumn prefWidth="75.0" text="Item" />
-                <TableColumn prefWidth="75.0" text="Inventory" />
-            </columns>
-        </TableView>
         <Button layoutX="494.0" layoutY="41.0" mnemonicParsing="false" onAction="#Return" prefHeight="27.0" prefWidth="52.0" text="Return" />
-        <Button layoutX="57.0" layoutY="353.0" mnemonicParsing="false" onAction="#Search" prefHeight="39.0" prefWidth="118.0" text="Search for Item">
+        <Button layoutX="51.0" layoutY="195.0" mnemonicParsing="false" onAction="#Search" prefHeight="61.0" prefWidth="145.0" text="Search for Item">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button layoutX="241.0" layoutY="353.0" mnemonicParsing="false" onAction="#AddItem" prefHeight="39.0" prefWidth="118.0" text="Add Item">
+        <Button layoutX="228.0" layoutY="195.0" mnemonicParsing="false" onAction="#AddItem" prefHeight="61.0" prefWidth="152.0" text="Add Item">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button layoutX="428.0" layoutY="353.0" mnemonicParsing="false" onAction="#RemoveItem" prefHeight="39.0" prefWidth="118.0" text="Remove Item">
+        <Button layoutX="418.0" layoutY="195.0" mnemonicParsing="false" onAction="#RemoveItem" prefHeight="61.0" prefWidth="152.0" text="Remove Item">
             <font>
                 <Font size="14.0" />
             </font>

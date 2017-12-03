@@ -10,17 +10,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.ItemPageController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Pictures/Official_Litecoin_Logo.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="14.0" layoutY="14.0" text="&lt;Item Name&gt;">
+      <ImageView fx:id="itemImage" fitHeight="163.0" fitWidth="226.0" layoutX="336.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="itemName" layoutX="14.0" layoutY="14.0" maxWidth="350.0" text="&lt;Item Name&gt;">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="67.0" text="\$&lt;price&gt;" textFill="#e40e0e">
+      <Label fx:id="price" layoutX="43.0" layoutY="67.0" maxWidth="105.0" text="\$&lt;price&gt;" textFill="#e40e0e">
          <font>
             <Font size="20.0" />
          </font>
@@ -30,7 +26,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="235.0" layoutY="70.0" text="&lt;Item ID&gt;">
+      <Label fx:id="itemID" layoutX="235.0" layoutY="70.0" maxWidth="130.0" text="&lt;Item ID&gt;">
          <font>
             <Font size="16.0" />
          </font>
@@ -40,7 +36,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Text layoutX="45.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today was a fresh start to this third unit, and we are starting with a very critical concept. Communication is important to me because I always believed I focused on it more than most individuals. " wrappingWidth="271.0">
+      <Text fx:id="description" layoutX="45.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today was a fresh start to this third unit, and we are starting with a very critical concept. Communication is important to me because I always believed I focused on it more than most individuals. " wrappingWidth="271.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -50,7 +46,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Text layoutX="37.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;StoreSecLocation&gt;">
+      <Text fx:id="storeSec" layoutX="157.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Sec&gt;">
          <font>
             <Font size="16.0" />
          </font>
@@ -60,7 +56,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Text layoutX="306.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;StockSecLocation&gt;">
+      <Text fx:id="stockSec" layoutX="407.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;StockSec&gt;">
          <font>
             <Font size="16.0" />
          </font>
@@ -70,21 +66,31 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="235.0" layoutY="93.0" text="&lt;depNum&gt;">
+      <Label fx:id="depNum" layoutX="235.0" layoutY="93.0" maxWidth="130.0" text="&lt;depNum&gt;">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Text layoutX="37.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;StoreInv&gt;">
+      <Text fx:id="storeInv" layoutX="155.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;StoreInv&gt;">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="306.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;StockInv&gt;">
+      <Text fx:id="stockInv" layoutX="408.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;StockInv&gt;">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Button layoutX="521.0" layoutY="28.0" mnemonicParsing="false" onAction="#Return" prefHeight="25.0" prefWidth="65.0" text="Return" />
+      <Button layoutX="510.0" layoutY="25.0" mnemonicParsing="false" onAction="#Return" prefHeight="25.0" prefWidth="65.0" text="Return" />
+      <Label layoutX="20.0" layoutY="288.0" text="StoreSecLocation:" />
+      <Label layoutX="20.0" layoutY="336.0" text="StoreInventory:" />
+      <Label layoutX="277.0" layoutY="287.0" text="StockSecLocation:" />
+      <Label layoutX="277.0" layoutY="315.0" text="StockInventory:" />
+      <Label layoutX="20.0" layoutY="314.0" text="StoreSubLocation:" />
+      <Text fx:id="storeSub" layoutX="157.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Sec&gt;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

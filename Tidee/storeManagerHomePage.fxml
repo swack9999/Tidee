@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,32 +8,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.storeManagerController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.StoreManagerController">
    <children>
       <Label layoutX="32.0" layoutY="30.0" text="Store Manager Homepage">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <Button layoutX="361.0" layoutY="142.0" mnemonicParsing="false" onAction="#changeLayout" prefHeight="58.0" prefWidth="174.0" text="Change Store Layout">
+      <Button layoutX="32.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeLayout" prefHeight="58.0" prefWidth="198.0" text="View Store Layout">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="68.0" layoutY="275.0" mnemonicParsing="false" onAction="#Clearence" prefHeight="58.0" prefWidth="174.0" text="View Clearance History">
+      <Button layoutX="32.0" layoutY="298.0" mnemonicParsing="false" onAction="#viewPriceChgHist" prefHeight="58.0" prefWidth="198.0" text="View Price Event History">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="68.0" layoutY="142.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="174.0" text="View Store Inventory">
+      <Button layoutX="32.0" layoutY="104.0" mnemonicParsing="false" onAction="#viewStoreInventory" prefHeight="58.0" prefWidth="198.0" text="View Store Inventory">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="361.0" layoutY="275.0" mnemonicParsing="false" onAction="#createPriceEvent" prefHeight="58.0" prefWidth="174.0" text="Create Price Event">
+      <Button layoutX="332.0" layoutY="162.0" mnemonicParsing="false" onAction="#processReturns" prefHeight="58.0" prefWidth="198.0" text="Process Returns">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      <Button layoutX="332.0" layoutY="258.0" mnemonicParsing="false" onAction="#updateStoreInventory" prefHeight="58.0" prefWidth="198.0" text="Update Item Inventory">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="181.0" fitWidth="182.0" layoutX="391.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Tidee.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>

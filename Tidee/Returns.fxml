@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="417.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.ReturnsController">
+   <children>
+      <TableView fx:id="itemView" layoutX="24.0" layoutY="116.0" prefHeight="264.0" prefWidth="418.0">
+         <columns>
+            <TableColumn fx:id="itemIDColumn" prefWidth="89.0" text="Item ID" />
+            <TableColumn fx:id="deptColumn" prefWidth="107.0" text="Dept" />
+            <TableColumn fx:id="itemColumn" prefWidth="141.0" text="Item" />
+            <TableColumn fx:id="inventoryColumn" text="Inventory" />
+         </columns>
+      </TableView>
+      <TextField fx:id="SearchValue" layoutX="39.0" layoutY="77.0" promptText="Item name" />
+      <TextField fx:id="QuantityReturned" layoutX="445.0" layoutY="209.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="445.0" layoutY="186.0" text="Quantity Returned:" />
+      <Button layoutX="447.0" layoutY="328.0" mnemonicParsing="false" onAction="#Submit" text="Submit Returns" />
+      <Label layoutX="24.0" layoutY="24.0" text="Process Returns">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="243.0" layoutY="77.0" mnemonicParsing="false" onAction="#Search" text="Search" />
+      <Button layoutX="447.0" layoutY="51.0" mnemonicParsing="false" onAction="#Return" text="Return" />
+   </children>
+</AnchorPane>

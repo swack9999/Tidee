@@ -18,7 +18,8 @@ public class Alert {
 		
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);
-		window.setMinWidth(250);
+		window.setMinWidth(600);
+		window.setMinHeight(400);
 		
 		msg.setText(message);
 		
@@ -28,7 +29,7 @@ public class Alert {
 		layout.getChildren().addAll(msg, closeButton);
 		layout.setAlignment(Pos.CENTER);
 		
-		scene = new Scene(layout);
+		scene = new Scene(layout,600,400);
 		window.setScene(scene);
 		window.show();
 	}
