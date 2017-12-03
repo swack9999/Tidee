@@ -85,19 +85,19 @@ public class createPriceController implements Initializable{
 					errorLabel.setVisible(true);
 					return;
 				}
-				result=conn.execStatement(false, "select `eventID` from `salesevent` where `eventID` = '" + eventID.getText() + "'");
+				result = conn.execStatement(false, "select `eventID` from `salesevent` where `eventID` = '" + eventID.getText() + "'");
 				if (result.next()) {
 					errorLabel.setText("EventID already exists in sales");
 					errorLabel.setVisible(true);
 					return;
 				}
-				result=conn.execStatement(false, "select `itemID` from `clearanceevent` where `itemID` = '" + tableItems.getItemID() + "'");
+				result = conn.execStatement(false, "select `itemID` from `clearanceevent` where `itemID` = '" + tableItems.getItemID() + "'");
 				if (result.next()) {
 					errorLabel.setText("ItemID is already in clearanceevent");
 					errorLabel.setVisible(true);
 					return;
 				}
-				result=conn.execStatement(false, "select `itemID` from `salesevent` where `itemID` = '" + tableItems.getItemID() + "'");
+				result = conn.execStatement(false, "select `itemID` from `salesevent` where `itemID` = '" + tableItems.getItemID() + "'");
 				if (result.next()) {
 					errorLabel.setText("ItemID is already in salesevent");
 					errorLabel.setVisible(true);
@@ -112,9 +112,9 @@ public class createPriceController implements Initializable{
 					
 				else {
 					statement="insert into `salesevent` (`eventID`, `eventDate`, `itemID`, `secLoc`, `subLoc`, "
-							+ "`markdownPrice`, `duration`) values ('"+eventID.getText()+"', '"+calendar.getValue().toString()+
-							"', '"+tableItems.getItemID()+"', '"+field1.getText()+"', '"+field2.getText()+"', '"+
-							newPrice.getText()+"', '"+duration.getText()+"');";
+							+ "`markdownPrice`, `duration`) values ('"+eventID.getText()+"', '"+calendar.getValue().toString() +
+							"', '"+tableItems.getItemID()+"', '"+field1.getText()+"', '"+field2.getText() + "', '" +
+							newPrice.getText() + "', '" + duration.getText() + "');";
 				}
 				conn.execStatement(true,statement);
 				radio1.setSelected(false);

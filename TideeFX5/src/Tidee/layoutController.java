@@ -13,19 +13,22 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.util.Collections;
 
-public class layoutController {
+public class layoutController implements Initializable{
 	// Attributes
 	private Parent manager_home_parent;
 	private ObservableList<TableItems> data;
+	private ObservableList<String> IDs;
 	@FXML
 	private TableView<TableItems> tableView;
 	@FXML
@@ -34,6 +37,8 @@ public class layoutController {
 	private TableColumn<TableItems, String> sec;
 	@FXML
 	private TableColumn<TableItems, String> sub;
+	@FXML
+	private ChoiceBox<String> layBox;
 	
 	// Operations
 	public void Return(ActionEvent event) throws IOException {
@@ -52,6 +57,7 @@ public class layoutController {
 		app_stage.show();
 	}
 	
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		/*
 		 * Purpose: Populates GUI table at initialization
@@ -89,10 +95,13 @@ public class layoutController {
 		while (secTok.hasMoreElements())
 			subs.add(Integer.parseInt(secTok.nextToken()));
 		// Populate layoutID ArrayList
-		secTok = new StringTokenizer(layRaw);
-		while (secTok.hasMoreElements())
-			layIDs.add(secTok.nextToken());
-		// 
+		for (int i = 0; i < secs.size(); i++) {
+            layIDs.add("DEP0" + (i + 1));
+        }
+		IDs = FXCollections.observableArrayList(layIDs);
+		layBox.setItems(IDs);
+		layBox.setValue(layIDs.get(0));
+		
 		if (GlobalConstants.currentEmpType == 1) {
 			depPos = Collections.binarySearch(secs, GlobalConstants.depNo);
 			for (int i = 1; i < subs.get(depPos) + 1; i++) {
@@ -109,5 +118,7 @@ public class layoutController {
 		sub.setCellValueFactory(new PropertyValueFactory<>("subSecName"));
 		tableView.setItems(null);
 		tableView.setItems(data);
+		
 	}
+	
 }

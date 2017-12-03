@@ -99,18 +99,17 @@ public class AddItemController {
 		} else {
 			// Add the described item to the database
 			errorLabel.setVisible(false);
-			if (GlobalConstants.currentEmpType == 1)
+			if (GlobalConstants.currentEmpType == 1) {
 				if (Integer.parseInt(depID.getText()) != Integer.parseInt(GlobalConstants.depNo)) {
 					errorLabel.setText("Department must match your department");
 					errorLabel.setVisible(true);
 				}
-
-				else {
-					if (file != null) {
-						fis = new FileInputStream(file);
-						try {
-							PreparedStatement statement = conn.getconnection().prepareStatement("insert into `item` "
-									+ "(`depNum`, `itemID`, `itemName`, `price`, "
+			}
+			if (file != null) {
+				fis = new FileInputStream(file);
+				try {
+					PreparedStatement statement = conn.getconnection()
+							.prepareStatement("insert into `item` " + "(`depNum`, `itemID`, `itemName`, `price`, "
 									+ "`productDescription`, `stockInventory`, "
 									+ "`stockSecLocation`, `storeInventory`, "
 									+ "`storeSecLocation`, `storeSubLocation`, `itemPic`) values ('" + depID.getText()
@@ -118,16 +117,28 @@ public class AddItemController {
 									+ ", '" + itemDesc.getText() + "', " + stockQuant.getText() + ", "
 									+ stockLoc.getText() + ", " + storeQuant.getText() + ", '" + storeLoc.getText()
 									+ "', '" + storeLocSub.getText() + "',?);");
-							statement.setBinaryStream(1, fis);
-							statement.execute();
-						} catch (Exception exc) {
-							exc.printStackTrace();
-						}
-					} else {
-						errorLabel.setText("No file selected, Use browse button");
-						errorLabel.setVisible(true);
-					}
+					statement.setBinaryStream(1, fis);
+					statement.execute();
+					// Clear all fields
+					itemName.clear();
+					itemID.clear();
+					depID.clear();
+					initQuant.clear();
+					price.clear();
+					itemDesc.clear();
+					stockQuant.clear();
+					storeQuant.clear();
+					stockLoc.clear();
+					storeLoc.clear();
+					storeLocSub.clear();
+					filePath.clear();
+				} catch (Exception exc) {
+					exc.printStackTrace();
 				}
+			} else {
+				errorLabel.setText("No file selected, Use browse button");
+				errorLabel.setVisible(true);
+			}
 		}
 	}
 }
