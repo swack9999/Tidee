@@ -15,7 +15,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="58.0" layoutY="171.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="188.0" text="View Store Inventory">
+      <Button layoutX="58.0" layoutY="171.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="188.0" text="Search Store Inventory">
          <font>
             <Font size="15.0" />
          </font>

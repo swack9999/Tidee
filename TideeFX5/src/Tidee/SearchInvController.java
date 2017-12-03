@@ -46,7 +46,10 @@ public class SearchInvController implements Initializable {
 		/*
 		 * Purpose: Upon pressing the return button, returns user back to previous screen
 		 */
-		manager_home_parent = FXMLLoader.load(getClass().getResource("storeInventory.fxml"));
+		if (GlobalConstants.currentEmpType == 0)
+			manager_home_parent = FXMLLoader.load(getClass().getResource("EmpHomePage.fxml"));
+		else
+			manager_home_parent = FXMLLoader.load(getClass().getResource("storeInventory.fxml"));
 		Scene manager_home_scene = new Scene(manager_home_parent);
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app_stage.setScene(manager_home_scene);
