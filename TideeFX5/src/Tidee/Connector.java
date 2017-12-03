@@ -10,7 +10,7 @@ public class Connector {
 		try {
 			connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/stocksystem?autoReconnect=true&useSSL=false",
-					"root", "MyNewPass");
+					"root", "cis375");
 		} catch (Exception exc) {
 			exc.printStackTrace();
 		}

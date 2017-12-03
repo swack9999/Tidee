@@ -26,4 +26,15 @@ public class EmpHomePageController {
 		app_stage.setScene(manager_home_scene);
 		app_stage.show();
 	}
+	
+	public void processReturns(ActionEvent event) throws IOException {
+		/*
+		 * Purpose: Sends user to process returns page
+		 */
+		manager_home_parent = FXMLLoader.load(getClass().getResource("Returns.fxml"));
+		Scene manager_home_scene = new Scene(manager_home_parent);
+		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		app_stage.setScene(manager_home_scene);
+		app_stage.show();
+	}
 }
