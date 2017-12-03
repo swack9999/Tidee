@@ -82,7 +82,11 @@ public class SearchInvController implements Initializable {
 		}
 		else {
 			Connector conn = new Connector();
-			ResultSet rs = conn.execStatement(false, "select * from `item` where `itemName` like '" + SearchValue.getText() + "%'");
+			ResultSet rs;
+			if(GlobalConstants.currentEmpType==1)
+				rs = conn.execStatement(false,"select * from `item` where `depNum` = '" + GlobalConstants.depNo + "'AND  `itemName` like '" + SearchValue.getText() +"%'");
+			else
+				rs= conn.execStatement(false, "select * from `item` where `itemName` like '" + SearchValue.getText() + "%'");
 			data= FXCollections.observableArrayList();
 			while (rs.next())
 				data.add(new TableItems(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),

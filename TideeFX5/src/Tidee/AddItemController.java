@@ -54,8 +54,7 @@ public class AddItemController {
 	private FileChooser filechooser;
 	private File file;
 	private FileInputStream fis;
-	
-	
+
 	// Operations
 	public void Return(ActionEvent event) throws IOException {
 		/*
@@ -67,17 +66,18 @@ public class AddItemController {
 		app_stage.setScene(manager_home_scene);
 		app_stage.show();
 	}
+
 	@FXML
 	public void Browse(ActionEvent event) throws IOException, SQLException {
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		filechooser=new FileChooser();
+		filechooser = new FileChooser();
 		filechooser.setTitle("Choose image file");
-		file=filechooser.showOpenDialog(app_stage);
-		if(file!=null)
-		{
+		file = filechooser.showOpenDialog(app_stage);
+		if (file != null) {
 			filePath.setText(file.getAbsolutePath());
 		}
 	}
+
 	@FXML
 	public void Submit(ActionEvent event) throws IOException, SQLException {
 		/*
@@ -85,47 +85,49 @@ public class AddItemController {
 		 */
 		Connector conn = new Connector();
 		// Check if item is already in database
-		ResultSet result = conn.execStatement(false, "select `itemID` from `item` where `itemID` = '" + itemID.getText() + "'");
+		ResultSet result = conn.execStatement(false,
+				"select `itemID` from `item` where `itemID` = '" + itemID.getText() + "'");
 		if (result.next()) {
 			errorLabel.setText("Item is already present in database");
 			errorLabel.setVisible(true);
 		}
 		// Check if initial quantity is exceeded
-		else if (Integer.parseInt(storeQuant.getText()) 
-				+ Integer.parseInt(stockQuant.getText()) 
-				> Integer.parseInt(initQuant.getText())){
-			errorLabel.setText("Store floor and stockroom quantities "
-					+ "exceed initial quantity");
+		else if (Integer.parseInt(storeQuant.getText()) + Integer.parseInt(stockQuant.getText()) > Integer
+				.parseInt(initQuant.getText())) {
+			errorLabel.setText("Store floor and stockroom quantities " + "exceed initial quantity");
 			errorLabel.setVisible(true);
-		}
-		else {
+		} else {
 			// Add the described item to the database
 			errorLabel.setVisible(false);
-			if(file!=null)
-			{
-			fis=new FileInputStream(file);
-			try {
-				PreparedStatement statement=conn.getconnection().prepareStatement("insert into `item` "
-						+ "(`depNum`, `itemID`, `itemName`, `price`, "
-						+ "`productDescription`, `stockInventory`, "
-						+ "`stockSecLocation`, `storeInventory`, "
-						+ "`storeSecLocation`, `storeSubLocation`, `itemPic`) values ('" + depID.getText() + "', '" 
-						+ itemID.getText() + "', '" + itemName.getText() + "', "
-						+ price.getText() + ", '" + itemDesc.getText() + "', " 
-						+ stockQuant.getText() + ", " + stockLoc.getText() + ", "
-						+ storeQuant.getText() + ", '" + storeLoc.getText() + "', '"
-						+storeLocSub.getText()+"',?);");
-				statement.setBinaryStream(1, fis);
-				statement.execute();
-			} catch (Exception exc) {
-				exc.printStackTrace();
-			}
-			}
-			else
-			{
-				errorLabel.setText("No file selected, Use browse button");
-				errorLabel.setVisible(true);
-			}
+			if (GlobalConstants.currentEmpType == 1)
+				if (Integer.parseInt(depID.getText()) != Integer.parseInt(GlobalConstants.depNo)) {
+					errorLabel.setText("Department must match your department");
+					errorLabel.setVisible(true);
+				}
+
+				else {
+					if (file != null) {
+						fis = new FileInputStream(file);
+						try {
+							PreparedStatement statement = conn.getconnection().prepareStatement("insert into `item` "
+									+ "(`depNum`, `itemID`, `itemName`, `price`, "
+									+ "`productDescription`, `stockInventory`, "
+									+ "`stockSecLocation`, `storeInventory`, "
+									+ "`storeSecLocation`, `storeSubLocation`, `itemPic`) values ('" + depID.getText()
+									+ "', '" + itemID.getText() + "', '" + itemName.getText() + "', " + price.getText()
+									+ ", '" + itemDesc.getText() + "', " + stockQuant.getText() + ", "
+									+ stockLoc.getText() + ", " + storeQuant.getText() + ", '" + storeLoc.getText()
+									+ "', '" + storeLocSub.getText() + "',?);");
+							statement.setBinaryStream(1, fis);
+							statement.execute();
+						} catch (Exception exc) {
+							exc.printStackTrace();
+						}
+					} else {
+						errorLabel.setText("No file selected, Use browse button");
+						errorLabel.setVisible(true);
+					}
+				}
 		}
 	}
 }
