@@ -44,9 +44,9 @@ public class layoutController implements Initializable {
 	@FXML
 	private ChoiceBox<String> layBox, oldSec, oldSub, newSec, newSub;
 	@FXML
-	private Button secSwapButton;
+	private Button secSwapButton, subSwapButton;
 	@FXML
-	private Label oldSecLabel, newSecLabel;
+	private Label oldSecLabel, newSecLabel, oldSubLabel, newSubLabel;
 
 	// Operations
 	public void Return(ActionEvent event) throws IOException {
@@ -71,20 +71,26 @@ public class layoutController implements Initializable {
 		 * Purpose: Swaps entered sections
 		 */
 		String rawSecs = "";
+		String rawSubs = "";
 		Connector conn = new Connector();
 		// Swap elements in local layout
 		Collections.swap(secs, linear(secs, oldSec.getValue()),
 				linear(secs, newSec.getValue()));
+		Collections.swap(subs, linear(secs, oldSec.getValue()), linear(secs, newSec.getValue()));
 		// Populate rawSecs from secs
 		for (int i = 0; i < secs.size(); i++) {
 			// This prevents an extra space at the end of rawSecs
-			if (i == secs.size() - 1)
+			if (i == secs.size() - 1) {
 				rawSecs += secs.get(i);
-			else
+				rawSubs += subs.get(i);
+			}
+			else {
 				rawSecs += secs.get(i) + " ";
+				rawSubs += subs.get(i) + " ";
+			}
 		}
 		// Update database with rawSecs
-		conn.execStatement(true, "update layout set secName = '" + rawSecs + "'");
+		conn.execStatement(true, "update layout set secName = '" + rawSecs + "', subSectionName = '" + rawSubs + "'");
 		// reset ChoiceBoxes
 		oldSec.setValue(secs.get(0));
 		newSec.setValue(secs.get(0));
@@ -123,6 +129,7 @@ public class layoutController implements Initializable {
 	public void switchLayout(ActionEvent event) {
 		int depPos;
 		Alert msg = new Alert();
+		List<String> subBoxList = new ArrayList<>();
 		// Check if dep manager attempts to change layout
 		if (GlobalConstants.currentEmpType == 1) {
 			// Display error message
@@ -137,12 +144,30 @@ public class layoutController implements Initializable {
 				for (int i = 0; i < layIDs.size() - 1; i++) {
 					for (int j = 1; j < Integer.parseInt(subs.get(i)) + 1; j++)
 						data.add(new TableItems(secs.get(i), Integer.toString(j)));
+					// Hide options to swap departments
+					oldSub.setVisible(false);
+					newSub.setVisible(false);
+					subSwapButton.setVisible(false);
+					oldSubLabel.setVisible(false);
+					newSubLabel.setVisible(false);
 				}
 			} else {
+				oldSub.setVisible(true);
+				newSub.setVisible(true);
+				subSwapButton.setVisible(true);
+				oldSubLabel.setVisible(true);
+				newSubLabel.setVisible(true);
 				depPos = Integer.parseInt(layBox.getValue().substring(3, 5)) - 1;
-				for (int i = 1; i < Integer.parseInt(subs.get(depPos)) + 1; i++)
+				for (int i = 1; i < Integer.parseInt(subs.get(depPos)) + 1; i++) {
 					data.add(new TableItems(secs.get(depPos), Integer.toString(i)));
+					subBoxList.add(Integer.toString(i));
+				}
 			}
+			IDs = FXCollections.observableArrayList(subBoxList);
+			oldSub.setItems(IDs);
+			newSub.setItems(IDs);
+			oldSub.setValue("1");
+			newSub.setValue("1");
 			sec.setCellValueFactory(new PropertyValueFactory<>("secName"));
 			sub.setCellValueFactory(new PropertyValueFactory<>("subSecName"));
 			tableView.setItems(null);
