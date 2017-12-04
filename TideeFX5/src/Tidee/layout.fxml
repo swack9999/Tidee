@@ -29,8 +29,8 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="oldSec" layoutX="535.0" layoutY="105.0" prefHeight="25.0" prefWidth="51.0" />
-      <ChoiceBox fx:id="newSec" layoutX="535.0" layoutY="143.0" prefHeight="25.0" prefWidth="51.0" />
+      <ChoiceBox fx:id="oldSec" layoutX="535.0" layoutY="105.0" prefHeight="25.0" prefWidth="102.0" />
+      <ChoiceBox fx:id="newSec" layoutX="535.0" layoutY="143.0" prefHeight="25.0" prefWidth="102.0" />
       <Button fx:id="secSwapButton" layoutX="536.0" layoutY="187.0" mnemonicParsing="false" onAction="#swapSecs" text="Swap Sections" />
       <ChoiceBox fx:id="oldSub" layoutX="561.0" layoutY="242.0" prefHeight="25.0" prefWidth="51.0" />
       <Label layoutX="444.0" layoutY="283.0" text="New Sub Section:">

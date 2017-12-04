@@ -87,22 +87,28 @@ public class AddItemController {
 		// Check if item is already in database
 		ResultSet result = conn.execStatement(false,
 				"select `itemID` from `item` where `itemID` = '" + itemID.getText() + "'");
-		if (result.next()) {
+		if (result.next()) 
+		{
 			errorLabel.setText("Item is already present in database");
 			errorLabel.setVisible(true);
+			return;
 		}
 		// Check if initial quantity is exceeded
-		else if (Integer.parseInt(storeQuant.getText()) + Integer.parseInt(stockQuant.getText()) > Integer
-				.parseInt(initQuant.getText())) {
+		if (Integer.parseInt(storeQuant.getText()) + Integer.parseInt(stockQuant.getText()) > Integer
+				.parseInt(initQuant.getText())) 
+		{
 			errorLabel.setText("Store floor and stockroom quantities " + "exceed initial quantity");
 			errorLabel.setVisible(true);
-		} else {
+			return;
+		}
 			// Add the described item to the database
 			errorLabel.setVisible(false);
 			if (GlobalConstants.currentEmpType == 1) {
-				if (Integer.parseInt(depID.getText()) != Integer.parseInt(GlobalConstants.depNo)) {
+				if (depID.getText() != GlobalConstants.depNo) 
+				{
 					errorLabel.setText("Department must match your department");
 					errorLabel.setVisible(true);
+					return;
 				}
 			}
 			if (file != null) {
@@ -132,13 +138,19 @@ public class AddItemController {
 					storeLoc.clear();
 					storeLocSub.clear();
 					filePath.clear();
-				} catch (Exception exc) {
+					Alert msg=new Alert();
+					msg.display("Added New Item","Event was created");
+				} 
+				catch (Exception exc) 
+				{
 					exc.printStackTrace();
 				}
-			} else {
+			} 
+			else 
+			{
 				errorLabel.setText("No file selected, Use browse button");
 				errorLabel.setVisible(true);
+				return;
 			}
-		}
 	}
 }

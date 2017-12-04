@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -10,12 +9,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.EmpHomePageController">
    <children>
-      <Button layoutX="339.0" layoutY="171.0" mnemonicParsing="false" onAction="#Clearence" prefHeight="58.0" prefWidth="188.0" text="View Price Event History">
+      <Button layoutX="330.0" layoutY="200.0" mnemonicParsing="false" onAction="#Clearence" prefHeight="58.0" prefWidth="185.0" text="View Price Event History">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="58.0" layoutY="171.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="188.0" text="Search Store Inventory">
+      <Button layoutX="59.0" layoutY="200.0" mnemonicParsing="false" onAction="#ViewStoreInventory" prefHeight="58.0" prefWidth="174.0" text="View Store Inventory">
          <font>
             <Font size="15.0" />
          </font>
@@ -25,15 +24,5 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Button layoutX="195.0" layoutY="296.0" mnemonicParsing="false" onAction="#processReturns" prefHeight="58.0" prefWidth="188.0" text="Process Returns">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="181.0" fitWidth="182.0" layoutX="401.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Tidee.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

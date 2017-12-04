@@ -72,10 +72,8 @@ public class ReturnsController implements Initializable {
 	@FXML
 	public void Return(ActionEvent event) throws IOException {
 		/*
-		 * Purpose: Send user to homepage based on their employee type
+		 * Purpose: Send user to previous page
 		 */
-		if (GlobalConstants.currentEmpType == 0)
-			manager_home_parent = FXMLLoader.load(getClass().getResource("EmpHomePage.fxml"));
 		if (GlobalConstants.currentEmpType == 1)
 			manager_home_parent = FXMLLoader.load(getClass().getResource("DeptManagerHomePage.fxml"));
 		if (GlobalConstants.currentEmpType == 2)

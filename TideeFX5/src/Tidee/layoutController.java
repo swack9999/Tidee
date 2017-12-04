@@ -73,8 +73,8 @@ public class layoutController implements Initializable {
 		String rawSecs = "";
 		Connector conn = new Connector();
 		// Swap elements in local layout
-		Collections.swap(secs, Collections.binarySearch(secs, oldSec.getValue()),
-				Collections.binarySearch(secs, newSec.getValue()));
+		Collections.swap(secs, linear(secs, oldSec.getValue()),
+				linear(secs, newSec.getValue()));
 		// Populate rawSecs from secs
 		for (int i = 0; i < secs.size(); i++) {
 			// This prevents an extra space at the end of rawSecs
@@ -96,14 +96,29 @@ public class layoutController implements Initializable {
 		 * Purpose: Swaps entered subsections
 		 */
 		Connector conn = new Connector();
+		int oldSubVal;
 		// Update relevant items' sublocations
+		oldSubVal = Integer.parseInt(oldSub.getValue());
 		conn.execStatement(true, "update item set storeSubLocation = '" + newSub.getValue()
 				+ "' where storeSecLocation = '" + layBox.getValue() + "'");
+		conn.execStatement(true, "update item set storeSubLocation = '" + oldSubVal + "' where storeSecLocation = '"
+				+ layBox.getValue() + "'");
 		// Reset ChoiceBoxes
 		oldSub.setValue("1");
 		newSub.setValue("1");
 	}
 
+	public int linear(List<String> ids, String target) {
+		/*
+		 * Purpose: Searches list for target id
+		 */
+		for (int i = 0; i < ids.size(); i++) {
+			if (target.equals(ids.get(i)))
+				return i;
+		}
+		return -1;
+	}
+	
 	@FXML
 	public void switchLayout(ActionEvent event) {
 		int depPos;
@@ -111,21 +126,29 @@ public class layoutController implements Initializable {
 		// Check if dep manager attempts to change layout
 		if (GlobalConstants.currentEmpType == 1) {
 			// Display error message
-			msg.display("Wrong department", "What the fuck is wrong with you?");
+			msg.display("Wrong Department", "Department Managers can't switch to another department's layout.");
 			// Reset layBox
 			depPos = Collections.binarySearch(secs, GlobalConstants.depNo);
 			layBox.setValue(layIDs.get(depPos));
 		} else {
-			// Repopulate GUI table
 			data = FXCollections.observableArrayList();
-			depPos = Integer.parseInt(layBox.getValue().substring(3, 5)) - 1;
-			for (int i = 1; i < Integer.parseInt(subs.get(depPos)) + 1; i++)
-				data.add(new TableItems(secs.get(depPos), Integer.toString(i)));
+			// Repopulate GUI table
+			if (layBox.getValue().equals("STORE")) {
+				for (int i = 0; i < layIDs.size() - 1; i++) {
+					for (int j = 1; j < Integer.parseInt(subs.get(i)) + 1; j++)
+						data.add(new TableItems(secs.get(i), Integer.toString(j)));
+				}
+			} else {
+				depPos = Integer.parseInt(layBox.getValue().substring(3, 5)) - 1;
+				for (int i = 1; i < Integer.parseInt(subs.get(depPos)) + 1; i++)
+					data.add(new TableItems(secs.get(depPos), Integer.toString(i)));
+			}
 			sec.setCellValueFactory(new PropertyValueFactory<>("secName"));
 			sub.setCellValueFactory(new PropertyValueFactory<>("subSecName"));
 			tableView.setItems(null);
 			tableView.setItems(data);
 		}
+
 	}
 
 	@Override
@@ -169,6 +192,7 @@ public class layoutController implements Initializable {
 			layIDs.add("DEP0" + (i + 1));
 		}
 		// Populate layBox and set default value
+		layIDs.add("STORE");
 		IDs = FXCollections.observableArrayList(layIDs);
 		layBox.setItems(IDs);
 		layBox.setValue(layIDs.get(0));
@@ -182,7 +206,7 @@ public class layoutController implements Initializable {
 		// Check for Dep Manager
 		if (GlobalConstants.currentEmpType == 1) {
 			// Restrict to only data from respective department
-			depPos = Collections.binarySearch(secs, GlobalConstants.depNo);
+			depPos = linear(secs, GlobalConstants.depNo);
 			for (int i = 1; i < Integer.parseInt(subs.get(depPos)) + 1; i++) {
 				data.add(new TableItems(secs.get(depPos), Integer.toString(i)));
 				subBoxList.add(Integer.toString(i));
@@ -201,7 +225,6 @@ public class layoutController implements Initializable {
 				subBoxList.add(Integer.toString(i));
 			}
 		}
-
 		// Populate oldSub and newSub
 		IDs = FXCollections.observableArrayList(subBoxList);
 		oldSub.setItems(IDs);
