@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="506.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tidee.createPriceController">
+   <children>
+      <Label layoutX="24.0" layoutY="24.0" text="Create Price Change Event">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="686.0" layoutY="451.0" mnemonicParsing="false" onAction="#Submit" prefHeight="30.0" prefWidth="74.0" text="Submit">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="57.0" layoutY="95.0" text="Select Event Type:" />
+      <RadioButton fx:id="radio1" layoutX="57.0" layoutY="128.0" mnemonicParsing="false" text="Clearance Event">
+         <toggleGroup>
+            <ToggleGroup fx:id="check" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="radio2" layoutX="57.0" layoutY="163.0" mnemonicParsing="false" text="Sale Event" toggleGroup="$check" />
+      <Label layoutX="57.0" layoutY="295.0" text="Start Date" />
+      <Label layoutX="57.0" layoutY="377.0" text="Duration (in days):" />
+      <Label layoutX="58.0" layoutY="216.0" text="New Markdown Price" />
+      <TextField fx:id="newPrice" layoutX="58.0" layoutY="246.0" promptText="ex: 24" />
+      <DatePicker fx:id="calendar" layoutX="57.0" layoutY="322.0" />
+      <Button layoutX="673.0" layoutY="36.0" mnemonicParsing="false" onAction="#Return" prefHeight="30.0" prefWidth="67.0" text="Return">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="itemView" layoutX="278.0" layoutY="163.0" prefHeight="212.0" prefWidth="491.0">
+         <columns>
+            <TableColumn fx:id="itemIDColumn" prefWidth="75.0" text="ItemID" />
+            <TableColumn fx:id="deptColumn" prefWidth="75.0" text="Dept" />
+            <TableColumn fx:id="itemColumn" prefWidth="159.0" text="Item" />
+            <TableColumn fx:id="priceColumn" prefWidth="82.0" text="Price" />
+            <TableColumn fx:id="inventoryColumn" prefWidth="97.0" text="Inventory" />
+         </columns>
+      </TableView>
+      <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="233.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo%20for%20search.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="483.0" layoutY="118.0" mnemonicParsing="false" onAction="#Search" prefHeight="31.0" prefWidth="98.0" text="Search" />
+      <TextField fx:id="SearchValue" layoutX="278.0" layoutY="118.0" promptText="Item name" />
+      <TextField fx:id="duration" layoutX="58.0" layoutY="409.0" />
+      <Label layoutX="238.0" layoutY="377.0" prefHeight="21.0" prefWidth="67.0" text="Event ID:" />
+      <TextField fx:id="eventID" layoutX="238.0" layoutY="409.0" />
+      <Label fx:id="errorLabel" layoutX="304.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="21.0" prefWidth="359.0" textFill="RED" />
+      <Label layoutX="413.0" layoutY="377.0" prefHeight="21.0" prefWidth="95.0" text="Sec Location:" />
+      <Label fx:id="subLoc" layoutX="519.0" layoutY="377.0" prefHeight="21.0" prefWidth="95.0" text="Sub Location:" />
+      <TextField fx:id="field1" layoutX="413.0" layoutY="409.0" prefHeight="31.0" prefWidth="86.0" />
+      <TextField fx:id="field2" layoutX="519.0" layoutY="409.0" prefHeight="31.0" prefWidth="86.0" />
+      <TextField fx:id="depNum" layoutX="620.0" layoutY="406.0" prefHeight="31.0" prefWidth="98.0" />
+      <Label fx:id="subLoc1" layoutX="621.0" layoutY="377.0" prefHeight="21.0" prefWidth="130.0" text="Department Number" />
+   </children>
+</AnchorPane>
